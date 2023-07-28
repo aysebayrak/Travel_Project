@@ -1,0 +1,36 @@
+﻿﻿@model List<CasgemTravel.DAL.Entities.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<h2 class="text-center">Mesajlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Gönderen Kişi</th>
+        <th>Mail Adresi</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Mail</td>
+            <td>@item.Subject</td>
+            <td>@item.Message</td>
+            <td>@Convert.ToDateTime(@item.MessageDate).ToString("dd/MM/yyyy")</td>
+            <td>@Html.ActionLink("Sil", "DeleteMessage", new { id = @item.ContactID }, new { @class = "btn btn-outline-danger", onclick = "return confirm('Mesajı Gerçekten Silmek İstiyor Musunuz?')" }) </td>
+            <td> <a href="/Message/MessageDetails/@item.ContactID" class="btn btn-outline-info">Mesajı Gör</a></td>
+        </tr>
+    }
+</table>

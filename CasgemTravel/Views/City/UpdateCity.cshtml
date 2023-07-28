@@ -1,0 +1,20 @@
+﻿﻿@model CasgemTravel.DAL.Entities.City
+@{
+    ViewBag.Title = "UpdateCity";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<h2>Şehir Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.HiddenFor(x => x.CityId)
+    <label>Şehir Adı: </label>
+    @Html.TextBoxFor(x => x.CityName, new { @class = "form-control border" })
+    <br />
+    <label>Tur Sayısı: </label>
+    @Html.TextBoxFor(x => x.CityCount, new { @class = "form-control border" })
+    <br />
+    <label>Şehir Fotoğraf URL: </label>
+    @Html.TextBoxFor(x => x.CityImageUrl, new { @class = "form-control border" })
+    <br />
+    <a href="/City/Index/" class="btn btn-danger">İptal</a>
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>

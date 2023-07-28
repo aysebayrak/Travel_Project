@@ -1,0 +1,59 @@
+﻿using CasgemTravel.DAL.Context;
+using CasgemTravel.DAL.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace CasgemTravel.Controllers
+{
+    public class CityController : Controller
+    {
+        TravelContext travelContext = new TravelContext();
+        public ActionResult Index()
+        {
+            var values = travelContext.Cities.ToList();
+            return View(values);
+        }
+
+        [HttpGet]
+        public ActionResult AddCity()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCity(City city)
+        {
+            travelContext.Cities.Add(city);
+            travelContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteCity(int id)
+        {
+            var city = travelContext.Cities.Find(id);
+            travelContext.Cities.Remove(city);
+            travelContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateCity(int id)
+        {
+            var city = travelContext.Cities.Find(id);
+            return View(city);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCity(City city)
+        {
+            var updateCity = travelContext.Cities.Find(city.CityId);
+            updateCity.CityName = city.CityName;
+            updateCity.CityCount = city.CityCount;
+            updateCity.CityImageUrl = city.CityImageUrl;
+            travelContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
+}

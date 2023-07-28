@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Casgem Travel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Templates/sidebar-03/css/style.css">
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Casgem Travel</span>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2><a href="/Default/Index/" class="text-white">Casgem Travel</a></h2>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="/AdminGuide/Index/"><span class="fa fa-home mr-3"></span> Rehber İşlemleri</a>
+                    </li>
+                    <li>
+                        <a href="/Booking/Index/"><span class="fa fa-user mr-3"></span> Rezervazyon İşlemleri</a>
+                    </li>
+                    <li>
+                        <a href="/City/Index/"><span class="fa fa-briefcase mr-3"></span> Şehir Listesi</a>
+                    </li>
+                    <li>
+                        <a href="/Message/Index/"><span class="fa fa-sticky-note mr-3"></span> Mesajlar</a>
+                    </li>
+                    <li>
+                        <a href="/Admin/AdminList/"><span class="fa fa-paper-plane mr-3"></span> Admin Listesi</a>
+                    </li>
+                </ul>
+
+
+
+                <div class="footer">
+                    <p>
+                        &copy;
+                        <script>document.write(new Date().getFullYear());</script> Tüm Hakları Sakldırı
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <script src="~/Templates/sidebar-03/js/jquery.min.js"></script>
+    <script src="~/Templates/sidebar-03/js/popper.js"></script>
+    <script src="~/Templates/sidebar-03/js/bootstrap.min.js"></script>
+    <script src="~/Templates/sidebar-03/js/main.js"></script>
+</body>
+</html>

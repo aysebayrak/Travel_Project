@@ -1,0 +1,16 @@
+﻿﻿@model CasgemTravel.DAL.Entities.Admin
+
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<h2>Admin Ekleme Sayfası</h2>
+<form method="post">
+    <label>Kullanıcı Adı: </label>
+    @Html.TextBoxFor(x => x.Username, new { @class = "form-control border" })
+    <br />
+    <label>Şifre: </label>
+    @Html.PasswordFor(x => x.Password, new { @class = "form-control border" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>

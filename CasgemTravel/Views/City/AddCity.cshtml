@@ -1,0 +1,18 @@
+﻿﻿@model CasgemTravel.DAL.Entities.City
+@{
+    ViewBag.Title = "AddCity";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<h2>Şehir Ekleme Sayfası</h2>
+<form method="post">
+    <label>Şehir Adı: </label>
+    @Html.TextBoxFor(x => x.CityName, new { @class = "form-control border" })
+    <br />
+    <label>Tur Sayısı: </label>
+    @Html.TextBoxFor(x => x.CityCount, new { @class = "form-control border" })
+    <br />
+    <label>Şehir Fotoğraf URL: </label>
+    @Html.TextBoxFor(x => x.CityImageUrl, new { @class = "form-control border" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>

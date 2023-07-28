@@ -1,0 +1,31 @@
+﻿﻿@model List<CasgemTravel.DAL.Entities.City>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+<h2 class="text-center">Şehir İşlemleri</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Şehir Adı</th>
+        <th>Tur Adeti</th>
+        <th>Şehir Resmi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.CityName</td>
+            <td>@item.CityCount</td>
+            <td> <img src="@item.CityImageUrl" width="250" /> </td>
+            <td>@Html.ActionLink("Sil", "DeleteCity", new { id = @item.CityId }, new { @class = "btn btn-outline-danger", onclick = "return confirm('Şehri Gerçekten Silmek İstiyor Musunuz?')" }) </td>
+            <td> <a href="/City/UpdateCity/@item.CityId" class="btn btn-outline-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<td> <a href="/City/AddCity/" class="btn btn-outline-info">Yeni Şehir Girişi</a> </td>

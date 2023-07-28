@@ -1,0 +1,31 @@
+﻿﻿@model CasgemTravel.DAL.Entities.Contact
+
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="text-center">Mesaj Detayları</h2>
+
+
+<label>Gönderen Adı: </label>
+@Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control border" })
+<br />
+
+<label>Mail Adresi: </label>
+@Html.TextBoxFor(x => x.Mail, new { @class = "form-control border" })
+<br />
+
+<label>Tarih: </label>
+@Html.TextBoxFor(x => x.MessageDate, "{0:dd/MM/yyyy}", new { @class = "form-control border" })
+<br />
+
+<label>Konu: </label>
+@Html.TextBoxFor(x => x.Subject, new { @class = "form-control border" })
+<br />
+
+<label>Mesaj: </label>
+@Html.TextAreaFor(x => x.Message, new { @class = "form-control border" })
+<br />
+
+<a href="/Message/Index/" class="btn btn-danger">Geri</a>
